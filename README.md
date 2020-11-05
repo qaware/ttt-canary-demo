@@ -1,8 +1,6 @@
 # Code for the canary demo as seen on [Tech Talk Thursday](https://www.youtube.com/user/QAwareGmbH/playlists)
 
-
 Steps to get it running yourself:
-
 
 1. Start Minikube
 1. Install Linkerd CLI (https://linkerd.io/2/getting-started/)
