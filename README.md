@@ -19,3 +19,13 @@ Steps to get it running yourself:
 1. Run `linkerd dashboard` to open the linkerd dashboard in a browser
 1. Now you can deploy the different versions, remember to refresh the browser so that the canaries get enough traffic
   1. To deploy a different version, modify [`k8s/01_deployment.yaml`](k8s/01_deployment.yaml) and deploy to k8s (`deploy.sh`)
+
+## Included pictures
+
+The included pictures of the dog, cat, moon and the tree are from Wikipedia:
+
+* [Tree](https://de.wikipedia.org/wiki/Baum#/media/Datei:Baum_im_Sossusvlei.jpg)
+* [Dog](https://de.wikipedia.org/wiki/Haushund#/media/Datei:Sennenhund.jpg)
+* [Cat](https://de.wikipedia.org/wiki/Hauskatze#/media/Datei:Hauskatze_langhaar.jpg)
+* [Moon](https://de.wikipedia.org/wiki/Mond#/media/Datei:Full_Moon_Luc_Viatour.jpg)
+
