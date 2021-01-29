@@ -3,11 +3,15 @@
 Steps to get it running yourself:
 
 1. Start Minikube
-1. Install Linkerd CLI (https://linkerd.io/2/getting-started/)
+1. Install Linkerd CLI (https://linkerd.io/2/getting-started/), latest stable version (tested with 2.9.2)
+1. Install linkerd `linkerd install | kubectl apply -f -`
 1. Annotate default namespace to enable linkerd injection: `kubectl annotate namespace default linkerd.io/inject=enabled`
 1. Install Minikube Ingress addon: `minikube addons enable ingress`
 1. Build and deploy [`canary-proxy`](canary-proxy)
-1. Install flagger: `kubectl apply -k github.com/weaveworks/flagger/kustomize/linkerd`
+1. Install flagger:
+  1. `helm repo add flagger https://flagger.app`
+  1. `kubectl apply -f https://raw.githubusercontent.com/fluxcd/flagger/main/artifacts/flagger/crd.yaml`
+  1. `helm upgrade -i flagger flagger/flagger --namespace=linkerd --set crd.create=false --set meshProvider=linkerd --set metricsServer=http://linkerd-prometheus:9090`
 1. Build our application in 4 versions: version 1 which works, version 2 which works, version 3 which is broken, version 4 which works
   1. `VERSION=1 FAILURE=0 ./build-to-minikube.sh`
   1. `VERSION=2 FAILURE=0 ./build-to-minikube.sh`
